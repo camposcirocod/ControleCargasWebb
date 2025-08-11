@@ -1,0 +1,364 @@
+/* Reset e estilos básicos aqui já no style.css */
+
+/* Garantir box-sizing para evitar estouro */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Container principal: menu + conteúdo lado a lado */
+.container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    display: flex;
+    max-width: 100vw;
+    /* evita scroll horizontal */
+    overflow-x: hidden;
+    /* evita scroll horizontal */
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fc;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 220px;
+    background-color: #1e3c72;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    /* muito importante */
+    overflow-y: auto;
+    /* para rolar se conteúdo longo */
+    border-radius: 6px;
+}
+
+/* Cabeçalho do menu: título + botão lado a lado */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    /* espaço abaixo */
+}
+
+/* Estilo do título */
+.sidebar-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin: 0;
+    /* remove margens padrão */
+}
+
+/* Botão hambúrguer (invisível no desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Menu de links */
+.menu {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    flex-grow: 1;
+    transition: max-height 0.3s ease;
+}
+
+.menu li {
+    margin-bottom: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #cdd9f4;
+    font-size: 18px;
+    padding: 10px 12px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #16335f;
+    color: white;
+}
+
+.menu button {
+    all: unset;
+    /* Remove estilos padrões do botão */
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 18px;
+    color: #cdd9f4;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: left;
+}
+
+.menu button:hover {
+    background-color: #16335f;
+    color: white;
+}
+
+/* Conteúdo principal */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    min-width: 0;
+    /* previne overflow horizontal */
+}
+
+.content h1 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* ----------------- NOVOS ESTILOS DASHBOARD ----------------- */
+
+/* Agrupamento dos filtros e total de ganhos */
+.dashboard-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Formulário de filtros */
+.filtro-form {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    flex: 1;
+    min-width: 0;
+    /* evita overflow */
+}
+
+.filtro-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.filtro-group label {
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 6px;
+}
+
+.filtro-group input[type="date"],
+.filtro-group select {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    outline-color: #1e3c72;
+    transition: border-color 0.3s ease;
+}
+
+.filtro-group input[type="date"]:focus,
+.filtro-group select:focus {
+    border-color: #16335f;
+}
+
+/* Botão filtrar */
+.btn-filtrar {
+    padding: 12px 25px;
+    background-color: #1e3c72;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 140px;
+    height: fit-content;
+}
+
+.btn-filtrar:hover {
+    background-color: #16335f;
+}
+
+/* Total ganhos no dashboard */
+.total-ganhos {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e3c72;
+    user-select: none;
+    white-space: nowrap;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container dos gráficos */
+.dashboard-graficos {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Cada gráfico */
+.grafico-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1 1 400px;
+    max-width: 600px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.grafico-container h2 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Canvas dos gráficos ocupa toda largura possível */
+.grafico-container canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ----------------- RESPONSIVO ----------------- */
+@media (max-width: 800px) {
+    .dashboard-filtros {
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .filtro-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filtro-group {
+        min-width: 100% !important;
+        width: 100%;
+    }
+
+    .filtro-group label {
+        text-align: left;
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    .filtro-group input[type="date"],
+    .filtro-group select {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .btn-filtrar {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .total-ganhos {
+        min-width: auto;
+        white-space: normal;
+        text-align: left;
+        margin-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .dashboard-graficos {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .grafico-container {
+        max-width: 100%;
+        min-width: auto;
+    }
+}
+
+/* ----------------- RESPONSIVO MENU ----------------- */
+
+/* Tela pequena: menu vira topo e vira hambúrguer */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px 20px;
+        box-shadow: none;
+    }
+
+    /* Ajusta o cabeçalho no mobile */
+    .sidebar-header {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-header h2 {
+        font-size: 20px;
+    }
+
+    /* Mostrar botão hambúrguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu começa oculto no mobile */
+    .menu {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    /* Quando o menu estiver ativo (classe .active), mostra */
+    .menu.active {
+        max-height: 700px;
+        /* suficiente para mostrar os links */
+    }
+
+    .menu li {
+        margin: 8px 0;
+    }
+
+    .menu a {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

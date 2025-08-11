@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Listar Cargas - ControleCargasWeb</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/listar_cargas.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Menu lateral -->
+        <nav class="sidebar" aria-label="Menu principal">
+            <div class="sidebar-header">
+                <h2>ControleCargasWeb</h2>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            </div>
+
+            <ul class="menu">
+                <li><a href="dashboard.html">Página Principal</a></li>
+                <li><a href="cadastrar_cargas.html">Cadastrar Cargas</a></li>
+                <li><a href="listar_cargas.html" class="active">Listar Cargas</a></li>
+                <li><a href="relatorio_ganhos.html">Relatórios</a></li>
+                <li><a href="config.html">Configurações</a></li>
+                <li><button id="btn-logout" type="button" aria-label="Sair do sistema">Sair</button></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main class="content" tabindex="-1">
+            <h1>Lista de Cargas</h1>
+
+            <div class="action-buttons">
+                <button id="btnEditar" disabled aria-disabled="true">✏️ Editar</button>
+                <button id="btnExcluir" disabled aria-disabled="true">🗑️ Excluir</button>
+            </div>
+
+            <table id="cargasTable" aria-label="Tabela de cargas">
+                <thead>
+                    <tr>
+                        <th>Nº Nota</th>
+                        <th>Nº CTE</th>
+                        <th>Peso (Kg)</th>
+                        <th>Status Carga</th>
+                        <th>Status Pagamento</th>
+                        <th>Vale</th>
+                        <th>Data/Hora Cadastro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Conteúdo gerado pelo JS -->
+                </tbody>
+            </table>
+
+            <!-- Modal para edição -->
+            <div id="modalEdit" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle"
+                aria-modal="true">
+                <div class="modal-content">
+                    <h2 id="modalTitle">Editar Carga</h2>
+                    <form id="editForm">
+                        <input type="hidden" id="editId" />
+                        <div class="input-group">
+                            <label for="editNumeroNota">Número da Nota</label>
+                            <input type="text" id="editNumeroNota" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="editNumeroCTE">Número CTE</label>
+                            <input type="text" id="editNumeroCTE" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="editPesoKg">Peso (Kg)</label>
+                            <input type="number" id="editPesoKg" required min="0" step="0.01" />
+                        </div>
+                        <div class="input-group">
+                            <label for="editStatusCarga">Status da Carga</label>
+                            <select id="editStatusCarga" required>
+                                <option value="">Selecione</option>
+                                <option value="Em Viagem">Em Viagem</option>
+                                <option value="Aguardando Descarga">Aguardando Descarga</option>
+                                <option value="Finalizada">Finalizada</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="editStatusPagamento">Status do Pagamento</label>
+                            <select id="editStatusPagamento" required>
+                                <option value="">Selecione</option>
+                                <option value="Pago">Pago</option>
+                                <option value="A Receber">A Receber</option>
+                            </select>
+                        </div>
+                        <div class="input-group checkbox">
+                            <input type="checkbox" id="editVale" />
+                            <label for="editVale">Peguei o vale (R$ 80,00 será descontado)</label>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="submit">Salvar</button>
+                            <button type="button" id="cancelEdit">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/listar_cargas.js"></script>
+    <script src="js/config.js"></script>
+</body>
+
+</html>

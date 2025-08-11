@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relatório de Ganhos - ControleCargasWeb</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/relatorio_ganhos.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Menu lateral -->
+        <nav class="sidebar" aria-label="Menu principal">
+            <div class="sidebar-header">
+                <h2>ControleCargasWeb</h2>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            </div>
+
+            <ul class="menu">
+                <li><a href="dashboard.html">Página Principal</a></li>
+                <li><a href="cadastrar_cargas.html">Cadastrar Cargas</a></li>
+                <li><a href="listar_cargas.html">Listar Cargas</a></li>
+                <li><a href="relatorio_ganhos.html" class="active">Relatórios</a></li>
+                <li><a href="config.html">Configurações</a></li>
+                <li><button id="btn-logout" type="button" aria-label="Sair do sistema">Sair</button></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main class="content" tabindex="-1">
+            <h1>Relatório de Ganhos</h1>
+
+            <div class="filtro-e-total">
+                <form id="filtroForm" aria-label="Formulário de filtro de relatório" class="filtro-form">
+                    <div class="filtro-group">
+                        <label for="dataInicio">Data Início</label>
+                        <input type="date" id="dataInicio" name="dataInicio" />
+                    </div>
+                    <div class="filtro-group">
+                        <label for="dataFim">Data Fim</label>
+                        <input type="date" id="dataFim" name="dataFim" />
+                    </div>
+                    <div class="filtro-group">
+                        <label for="statusCargaFiltro">Status da Carga</label>
+                        <select id="statusCargaFiltro" name="statusCargaFiltro">
+                            <option value="">Todos</option>
+                            <option value="Em Viagem">Em Viagem</option>
+                            <option value="Aguardando Descarga">Aguardando Descarga</option>
+                            <option value="Finalizada">Finalizada</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-filtrar">Aplicar Filtro</button>
+                </form>
+
+                <div class="total-ganhos" aria-live="polite">
+                    Total de Ganhos: <span id="totalGanhos">R$ 0,00</span>
+                </div>
+            </div>
+
+            <table id="relatorioTable" aria-label="Tabela de relatório de ganhos">
+                <thead>
+                    <tr>
+                        <th>Nº Nota</th>
+                        <th>Nº CTE</th>
+                        <th>Data / Hora</th>
+                        <th>Peso (Kg)</th>
+                        <th>Status Carga</th>
+                        <th>Vale</th>
+                        <th>Ganho (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas geradas via JS -->
+                </tbody>
+            </table>
+
+        </main>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/relatorios.js"></script>
+    <script src="js/config.js"></script>
+</body>
+
+</html>

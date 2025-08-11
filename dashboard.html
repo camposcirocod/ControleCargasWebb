@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ControleCargasWeb - Dashboard</title>
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Menu lateral -->
+        <nav class="sidebar" aria-label="Menu principal">
+            <div class="sidebar-header">
+                <h2>ControleCargas</h2>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            </div>
+
+            <ul class="menu">
+                <li><a href="dashboard.html" class="active">Página Principal</a></li>
+                <li><a href="cadastrar_cargas.html" id="link-cadastrar">Cadastrar Cargas</a></li>
+                <li><a href="listar_cargas.html" id="link-listar">Listar Cargas</a></li>
+                <li><a href="relatorio_ganhos.html" id="link-relatorio">Relatórios</a></li>
+                <li><a href="config.html" id="link-config">Configurações</a></li>
+                <li><button id="btn-logout" type="button" aria-label="Sair do sistema">Sair</button></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main class="content" tabindex="-1">
+            <h1>Bem-vindo ao ControleCargasWeb</h1>
+            <p>Aqui você pode gerenciar suas cargas, visualizar relatórios e configurar o sistema.</p>
+        </main>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/config.js"></script>
+</body>
+
+</html>
