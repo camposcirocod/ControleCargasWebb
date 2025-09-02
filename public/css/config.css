@@ -1,0 +1,322 @@
+/* config.css - estilo alinhado com home.css e lancar_viagem.css */
+.container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+/* Container geral do conteúdo */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    min-width: 0;
+    background-color: #f4f7fc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Título da página */
+.content h1 {
+    color: #1e3c72;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Parágrafo abaixo do título */
+.content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Grid para os cards de configuração */
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Card de configuração */
+.config-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.config-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone grande no card */
+.card-icon {
+    font-size: 2.5em;
+    color: #1e3c72;
+    margin-bottom: 12px;
+}
+
+/* Título dentro do card */
+.config-card h2 {
+    font-size: 18px;
+    color: #1e3c72;
+    margin-bottom: 10px;
+}
+
+/* Texto descritivo dentro do card */
+.config-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Botão dentro do card */
+.config-card button {
+    background-color: #1e3c72;
+    color: white;
+    font-size: 16px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.config-card button:hover {
+    background-color: #16335f;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal[aria-hidden="false"] {
+    display: flex !important;
+}
+
+/* Modal overlay (fundo escuro com posicionamento fixo e centralização) */
+#modalExport.modal.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* abrir só via JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalExport.modal.modal-overlay[aria-hidden="false"] {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal content (caixa branca com bordas arredondadas e sombra leve) */
+#modalExport .modal-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Título do modal */
+#modalExport #tituloModalExport {
+    font-size: 24px;
+    color: #1e3c72;
+    /* azul escuro */
+    margin-bottom: 20px;
+    font-weight: 700;
+    user-select: none;
+}
+
+/* Form inputs e selects - largura 100%, padding confortável, borda arredondada */
+#modalExport form#filtroFormExport label {
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+#modalExport form#filtroFormExport input[type="date"],
+#modalExport form#filtroFormExport select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    outline-color: #1e3c72;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+#modalExport form#filtroFormExport input[type="date"]:focus,
+#modalExport form#filtroFormExport select:focus {
+    border-color: #16335f;
+    box-shadow: 0 0 5px #16335faa;
+}
+
+/* Espaçamento entre campos */
+#modalExport form#filtroFormExport>div {
+    margin-bottom: 15px;
+}
+
+/* Botões container (flex para alinhar à direita e espaçar) */
+#modalExport form#filtroFormExport>div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Botões padrão */
+#modalExport button[type="submit"],
+#modalExport button#btnCancelarModal {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+}
+
+/* Botão Exportar: azul primário */
+#modalExport button[type="submit"] {
+    background-color: #1e3c72;
+    color: white;
+    box-shadow: 0 4px 8px rgba(30, 60, 114, 0.3);
+}
+
+#modalExport button[type="submit"]:hover,
+#modalExport button[type="submit"]:focus {
+    background-color: #16335f;
+    box-shadow: 0 6px 12px rgba(22, 51, 95, 0.5);
+    outline: none;
+}
+
+/* Botão Cancelar: cinza claro */
+#modalExport button#btnCancelarModal {
+    background-color: #ccc;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(100, 100, 100, 0.15);
+}
+
+#modalExport button#btnCancelarModal:hover,
+#modalExport button#btnCancelarModal:focus {
+    background-color: #999;
+    color: white;
+    box-shadow: 0 6px 12px rgba(80, 80, 80, 0.3);
+    outline: none;
+}
+
+/* Pequena animação ao abrir o modal */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#modalExport[aria-hidden="false"] .modal-content {
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+/* Responsividade - deixar o modal confortável em telas menores */
+@media (max-width: 480px) {
+    #modalExport .modal-content {
+        padding: 20px 15px;
+    }
+
+    #modalExport #tituloModalExport {
+        font-size: 20px;
+    }
+
+    #modalExport button[type="submit"],
+    #modalExport button#btnCancelarModal {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .content {
+        padding: 20px;
+    }
+
+    .content h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .config-card h2 {
+        font-size: 16px;
+    }
+
+    .config-card p {
+        font-size: 13px;
+    }
+
+    .config-card button {
+        font-size: 14px;
+        padding: 8px 14px;
+        max-width: 100%;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+        max-width: 95%;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .modal-buttons button {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+}

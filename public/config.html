@@ -13,22 +13,7 @@
 
     <div class="container">
 
-        <!-- Menu lateral -->
-        <nav class="sidebar" aria-label="Menu principal">
-            <div class="sidebar-header">
-                <h2>ControleCargasWeb</h2>
-                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-            </div>
-
-            <ul class="menu">
-                <li><a href="dashboard.html">Página Principal</a></li>
-                <li><a href="cadastrar_cargas.html">Cadastrar Cargas</a></li>
-                <li><a href="listar_cargas.html">Listar Cargas</a></li>
-                <li><a href="relatorio_ganhos.html">Relatórios</a></li>
-                <li><a href="config.html" class="active">Configurações</a></li>
-                <li><button id="btn-logout" type="button" aria-label="Sair do sistema">Sair</button></li>
-            </ul>
-        </nav>
+        <div id="menu-container"></div>
 
         <!-- Conteúdo principal -->
         <main class="content" tabindex="-1">
@@ -59,18 +44,47 @@
                 </div>
             </div>
         </main>
+    </div>
 
+    <!-- Modal de filtro para exportação -->
+    <div id="modalExport" class="modal modal-overlay" aria-hidden="true"
+        style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+        <div class="modal-content"
+            style="background:#fff; padding:20px; border-radius:8px; max-width:400px; width:90%;">
+            <h2 id="tituloModalExport">Exportar Dados - Filtros</h2>
+            <form id="filtroFormExport">
+                <div style="margin-bottom:12px;">
+                    <label for="dataInicio">Data Início</label><br />
+                    <input type="date" id="dataInicio" name="dataInicio" style="width:100%;" />
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label for="dataFim">Data Fim</label><br />
+                    <input type="date" id="dataFim" name="dataFim" style="width:100%;" />
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label for="statusCarga">Status da Carga</label><br />
+                    <select id="statusCarga" name="statusCarga" style="width:100%;">
+                        <option value="">Todos</option>
+                        <option value="Em Viagem">Em Viagem</option>
+                        <option value="Aguardando Descarga">Aguardando Descarga</option>
+                        <option value="Finalizada">Finalizada</option>
+                    </select>
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:10px;">
+                    <button type="submit">Exportar</button>
+                    <button type="button" id="btnCancelarModal">Cancelar</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
     <script src="js/firebase-config.js"></script>
-
+    <script src="js/menu.js" defer></script>
     <script src="js/config.js"></script>
 </body>
 

@@ -26,14 +26,15 @@ function carregarCargas() {
                 tr.dataset.index = cargas.length - 1;
 
                 tr.innerHTML = `
-          <td>${carga.numeroNota || ''}</td>
-          <td>${carga.numeroCTE || ''}</td>
-          <td>${typeof carga.pesoKg === 'number' ? carga.pesoKg.toFixed(2) : ''}</td>
-          <td>${carga.statusCarga || ''}</td>
-          <td>${carga.statusPagamento || ''}</td>
-          <td>${carga.vale ? 'Sim' : 'Não'}</td>
-          <td>${carga.dataCadastro ? carga.dataCadastro.toDate().toLocaleString() : ''}</td>
-        `;
+  <td data-label="Nº Nota">${carga.numeroNota || ''}</td>
+  <td data-label="Nº CTE">${carga.numeroCTE || ''}</td>
+  <td data-label="Peso (Kg)">${typeof carga.pesoKg === 'number' ? carga.pesoKg.toFixed(2) : ''}</td>
+  <td data-label="Status Carga">${carga.statusCarga || ''}</td>
+  <td data-label="Status Pagamento">${carga.statusPagamento || ''}</td>
+  <td data-label="Vale">${carga.vale ? 'Sim' : 'Não'}</td>
+  <td data-label="Data/Hora Cadastro">${carga.dataCadastro ? carga.dataCadastro.toDate().toLocaleString() : ''}</td>
+`;
+
 
                 tr.addEventListener('click', () => selecionarLinha(tr.dataset.index));
                 cargasTableBody.appendChild(tr);

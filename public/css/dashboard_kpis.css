@@ -1,0 +1,97 @@
+/* dashboard.css - Estilo para os KPIs da dashboard */
+
+/* Grid de KPIs */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Card individual do KPI */
+.kpi-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Título do KPI */
+.kpi-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+/* Valor do KPI */
+.kpi-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #16335f;
+    transition: all 0.4s ease;
+}
+
+/* Pequena animação de contagem numérica */
+.kpi-value.animate {
+    transform: scale(1.2);
+    color: #1e3c72;
+}
+
+/* Barra animada de destaque (decorativa) */
+.kpi-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #1e3c72, #16335f);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.kpi-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .kpi-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .kpi-value {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 500px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-card {
+        padding: 18px 12px;
+    }
+
+    .kpi-title {
+        font-size: 14px;
+    }
+
+    .kpi-value {
+        font-size: 22px;
+    }
+}

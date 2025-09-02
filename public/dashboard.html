@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ControleCargasWeb - Dashboard</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/dashboard_kpis.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Container do menu que será carregado via JS -->
+        <div id="menu-container"></div>
+
+        <!-- Conteúdo principal -->
+        <main class="content" tabindex="-1">
+            <h1>Bem-vindo ao ControleCargasWeb</h1>
+            <p>Aqui você pode gerenciar suas cargas, visualizar relatórios e configurar o sistema.</p>
+
+            <!-- KPI / Indicadores rápidos -->
+            <div class="kpi-row" style="display:flex; flex-direction:column; gap:18px; margin-bottom:18px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <h2 style="margin:0; font-size:20px; color:#16335f;">Indicadores</h2>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <label for="kpi-month" style="font-weight:600; color:#1e3c72;">Mês</label>
+                        <input id="kpi-month" type="month" />
+                        <button id="kpi-refresh" type="button" class="btn-filtrar" style="padding:8px 12px; min-width:auto;">Atualizar</button>
+                    </div>
+                </div>
+
+                <div id="kpiGrid" class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-title">Total de Cargas</div>
+                        <div id="kpi-total-cargas" class="kpi-value">0</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-title">Cargas Finalizadas</div>
+                        <div id="kpi-cargas-finalizadas" class="kpi-value">0</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-title">A Receber</div>
+                        <div id="kpi-cargas-areceber" class="kpi-value">0</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-title">Total de Ganhos</div>
+                        <div id="kpi-total-ganhos" class="kpi-value">R$ 0,00</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-title">Média por Carga</div>
+                        <div id="kpi-media-ganho" class="kpi-value">R$ 0,00</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

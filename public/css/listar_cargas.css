@@ -36,8 +36,9 @@ tbody tr:hover {
 }
 
 tbody tr.selecionado {
-    background-color: #16335f;
+    background-color: #10e0ba;
     color: white;
+    font-weight: 600;
 }
 
 .action-buttons {
@@ -207,6 +208,7 @@ tbody tr.selecionado {
         padding: 15px;
         border-radius: 12px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        color: #1e3c72;
     }
 
     tbody tr.selecionado {
@@ -226,7 +228,6 @@ tbody tr.selecionado {
         position: absolute;
         left: 15px;
         font-weight: 700;
-        color: #1e3c72;
     }
 
     .action-buttons {

@@ -13,22 +13,7 @@
 
     <div class="container">
 
-        <!-- Menu lateral -->
-        <nav class="sidebar" aria-label="Menu principal">
-            <div class="sidebar-header">
-                <h2>ControleCargasWeb</h2>
-                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-            </div>
-
-            <ul class="menu">
-                <li><a href="dashboard.html">Página Principal</a></li>
-                <li><a href="cadastrar_cargas.html" class="active">Cadastrar Cargas</a></li>
-                <li><a href="listar_cargas.html">Listar Cargas</a></li>
-                <li><a href="relatorios.html">Relatórios</a></li>
-                <li><a href="config.html">Configurações</a></li>
-                <li><button id="btn-logout" type="button" aria-label="Sair do sistema">Sair</button></li>
-            </ul>
-        </nav>
+        <div id="menu-container"></div>
 
         <!-- Conteúdo principal -->
         <main class="content" tabindex="-1">
@@ -83,9 +68,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
-    <script src="js/firebase-config.js"></script>
-
+    <script src="js/menu.js" defer></script>
     <script src="js/firebase-config.js"></script>
     <script src="js/cadastrar_cargas.js"></script>
     <script src="js/config.js"></script>
